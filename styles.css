@@ -1,0 +1,185 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Noto Sans;
+  color: black;
+}
+
+body {
+  background-color: #f5f5f5;
+  display: flex;
+  min-height: 100vh;
+  min-width: 1024px;
+  align-items: center;
+  justify-content: center;
+}
+
+.hidden {
+  display: none;
+}
+
+#container {
+  position: relative;
+  width: 1024px;
+  height: 560px;
+  background-color: white;
+  background-image: url("assets/bg.svg");
+  background-repeat: no-repeat;
+  background-position: bottom left;
+  font-size: 32px;
+}
+
+.titleBlock {
+  position: absolute;
+  font-size: 32px;
+  font-weight: 400;
+  top: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: max-content;
+}
+
+.titleBlock mark {
+  background-color: #ddf2ff;
+  padding: 0 4px;
+  margin: 0 -4px;
+}
+
+.doneButton {
+  color: white;
+  cursor: pointer;
+  background-color: #56c3ea;
+  border: none;
+  padding: 8px 12px;
+  font-size: 20px;
+  border-radius: 6px;
+  position: absolute;
+  top: 480px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.doneButton:hover {
+  background-color: #52b9de;
+}
+.doneButton.error {
+  background-color: #f84e5d;
+}
+.doneButton.success {
+  background-color: #8ebf80;
+  pointer-events: none;
+}
+.doneButton:disabled {
+  background-color: #d9d9d9;
+  pointer-events: none;
+}
+
+.questionBlock {
+  position: absolute;
+  width: max-content;
+  top: 320px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.questionBlock input {
+  border: 2px solid #56c3ea;
+  font-size: 32px;
+  text-align: center;
+  transition: all 1s ease-in;
+  width: 30px;
+  height: 49px;
+}
+
+.questionBlock.error input {
+  color: #f05a69;
+}
+.questionBlock.success input {
+  border: none;
+  pointer-events: none;
+}
+
+.donut {
+  all: unset;
+  position: absolute;
+  cursor: pointer;
+  transition: all 500ms ease-in;
+}
+.donut:focus,
+.donut:hover {
+  transform: scale(1.2);
+}
+.donut[data-number]::after {
+  content: attr(data-number);
+  position: absolute;
+  top: -35px;
+  left: 50%;
+  font-size: 24px;
+  color: black;
+  transform: translate(-50%, -50%);
+  font-size: 20px;
+  opacity: 1;
+  animation: fadeIn 0.5s ease-in;
+  pointer-events: none;
+  z-index: 5;
+}
+
+.donutSelected {
+  position: static;
+  pointer-events: none;
+}
+
+.donutContainerRaw {
+  position: absolute;
+  top: 140px;
+  left: calc(50% - 85px);
+  display: flex;
+  transition: all 500ms ease-in;
+  gap: 20px;
+}
+
+.donutContainer {
+  position: relative;
+  display: flex;
+  padding: 9px 20px;
+  gap: 8px;
+  width: 170px;
+  height: 78px;
+  background-image: url("assets/donuts_container.svg");
+  background-size: contain;
+}
+
+@keyframes capClose {
+  0% {
+    transform: translateY(-90px);
+  }
+  100% {
+    transform: none;
+  }
+}
+.cap {
+  display: none;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  background-image: url("assets/cap.svg");
+  background-repeat: no-repeat;
+}
+
+.donutContainerClosed .cap {
+  display: block;
+  animation: capClose 0.5s ease-in;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
