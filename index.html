@@ -7,12 +7,15 @@
     <title>Donuts</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="preload" href="assets/bg.svg" as="image">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;700&display=swap" rel="stylesheet">
 </head>
 
 <body>
     <main id="container">
         <h2 class="titleBlock">Click on the donuts to pack a <mark>group of 2</mark></h2>
-        <div aria-live="polite" class="questionBlock hidden">How many donuts in total? <input type="text" inputmode="numeric" pattern="[0-9]*"></div>
+        <div aria-live="polite" class="questionBlock hidden">How many donuts in total? <input type="text" inputmode="numeric" pattern="[0-9]" maxlength="1"></div>
         <button class="doneButton hidden" disabled>Done</button>
         <div class="donutContainerRaw">
             <div class="donutContainer">

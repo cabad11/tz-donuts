@@ -15,6 +15,10 @@ body {
   justify-content: center;
 }
 
+:root {
+  --container-close-animation-duration: 500ms;
+}
+
 .hidden {
   display: none;
 }
@@ -135,7 +139,7 @@ body {
   top: 140px;
   left: calc(50% - 85px);
   display: flex;
-  transition: all 500ms ease-in;
+  transition: all var(--container-close-animation-duration) ease-in;
   gap: 20px;
 }
 
@@ -172,7 +176,7 @@ body {
 
 .donutContainerClosed .cap {
   display: block;
-  animation: capClose 0.5s ease-in;
+  animation: capClose var(--container-close-animation-duration) ease-in;
 }
 
 @keyframes fadeIn {
